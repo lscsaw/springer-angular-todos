@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}
+      IMAGE_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }}
       TAG_LATEST: latest
       TAG_DYNAMIC: ${{ github.ref_name }}-${{ github.run_id }}
 

@@ -1,0 +1,24 @@
+@if (formChanges()) {}
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email" />
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" id="password" />
+  </div>
+
+  @if (loginError(); as loginError) {
+    <small style="color: red">
+      {{ loginError }}
+    </small>
+  }
+
+  <div>
+    <button type="submit" style="background-color: cornflowerblue">
+      Anmelden
+    </button>
+  </div>
+</form>

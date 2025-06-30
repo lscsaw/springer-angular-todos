@@ -1,0 +1,22 @@
+{
+  "todos": {
+    "title": "Todos",
+    "all": "Alle Todos",
+    "new": "Neu",
+    "open": "Offen",
+    "noOpen": "Keine offenen Todos",
+    "done": "Erledigt",
+    "noDone": "Keine erledigten Todos :'(",
+    "description": "Beschreibung",
+    "noDescription": "Keine Beschreibung :(",
+    "name": "Name",
+    "restore": "Wiederherstellen",
+    "delete": "Löschen",
+    "edit": {
+      "add": "Erstelle ein neues Todo",
+      "edit": "Bearbeite \"{{name}}\"",
+      "save": "Speichern",
+      "create": "Erstellen"
+    }
+  }
+}

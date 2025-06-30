@@ -1,0 +1,26 @@
+version: "3.8"
+
+name: angular-todos-dev
+
+services:
+  web:
+    container_name: angular-todos-web
+    restart: unless-stopped
+    build:
+      context: .
+      target: local
+    develop:
+      watch:
+        - action: rebuild
+          path: ./src
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: angular.json
+        - action: rebuild
+          path: nginx.conf
+        - action: rebuild
+          path: ./public
+
+    ports:
+      - "4200:80"

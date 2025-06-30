@@ -1,0 +1,29 @@
+<h2>{{ "todos.open" | transloco }}</h2>
+@for (todo of todoTodos(); track todo.id; let isLast = $last) {
+  <app-todo
+    [todo]="todo"
+    (removeTodo)="todosService.removeTodo(todo.id)"
+    (updateStatus)="todosService.updateStatus(todo, $event).subscribe()"
+  />
+
+  @if (!isLast) {
+    <hr />
+  }
+} @empty {
+  {{ "todos.noOpen" | transloco }}
+}
+
+<h2 style="margin-top: 15rem">{{ "todos.done" | transloco }}</h2>
+@for (todo of doneTodos(); track todo.id; let isLast = $last) {
+  <app-todo
+    [todo]="todo"
+    (removeTodo)="todosService.removeTodo(todo.id)"
+    (updateStatus)="todosService.updateStatus(todo, $event).subscribe()"
+  />
+
+  @if (!isLast) {
+    <hr />
+  }
+} @empty {
+  {{ "todos.noDone" | transloco }}
+}

@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://springer-workshop.dafnik.me",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

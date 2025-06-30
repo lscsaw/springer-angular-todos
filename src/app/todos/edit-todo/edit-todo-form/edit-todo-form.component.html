@@ -1,0 +1,34 @@
+@if (formChanges()) {}
+
+<h2>
+  @if (isCreating()) {
+    {{ "todos.edit.add" | transloco }}
+  } @else {
+    {{ "todos.edit.edit" | transloco: { name: todo()!.name } }}
+  }
+</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <label for="name">{{ "todos.name" | transloco }}:</label>
+    <input type="text" id="name" formControlName="name" />
+  </div>
+  <div>
+    <label for="description">{{ "todos.description" | transloco }}:</label>
+    <textarea formControlName="description" id="description"></textarea>
+  </div>
+
+  <div>
+    <button
+      type="submit"
+      style="background-color: darkolivegreen"
+      [disabled]="form.invalid"
+    >
+      @if (isCreating()) {
+        {{ "todos.edit.create" | transloco }}
+      } @else {
+        {{ "todos.edit.save" | transloco }}
+      }
+    </button>
+  </div>
+</form>

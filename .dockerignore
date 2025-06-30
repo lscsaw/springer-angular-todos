@@ -1,0 +1,14 @@
+node_modules
+.angular
+.git
+.github
+.gitignore
+*.md
+dist
+.editorconfig
+.eslintrc.json
+.prettierignore
+.prettierrc
+Dockerfile
+compose-local.yml
+karma.conf.js

@@ -1,0 +1,42 @@
+name: Angular Code Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint Angular Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+  trivy-scan:
+    name: Trivy Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Trivy
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.50.0_Linux-64bit.deb
+          sudo dpkg -i trivy_0.50.0_Linux-64bit.deb
+
+      - name: Scan project for vulnerabilities (node_modules)
+        run: |
+          trivy fs . --exit-code 1 --severity CRITICAL,HIGH --no-progress --ignore-unfixed

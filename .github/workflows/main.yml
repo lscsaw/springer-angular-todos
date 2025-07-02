@@ -1,0 +1,13 @@
+name: Automated review
+
+on: [push]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run prettier check
+        run: npm run check

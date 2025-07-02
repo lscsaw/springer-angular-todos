@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "format": "prettier --write .",
+    "check": "prettier . --check",
     "api:types:local": "swagger-typescript-api -p http://localhost:8080/api/swagger/docs-api -o ./src/app/ -n backend.d.ts --no-client && prettier --write ./src/app/backend.d.ts",
     "api:types": "swagger-typescript-api -p https://mazda-test.dafnik.me/api/swagger/docs-api -o ./src/app/ -n backend.d.ts --no-client && prettier --write ./src/app/backend.d.ts"
   },
